@@ -5,11 +5,12 @@ import TodoList from "./TodoList";
 const App = () => {
 
   const [todos, setTodos] = useState([
-    { id: 1, task: "Learn React", isCompleted: false },
-    { id: 2, task: "Build a React App", isCompleted: false },
-    { id: 3, task: "Deploy the React App", isCompleted: false }
+    { id: 1, task: "Learn React", completed: false },
+    { id: 2, task: "Build a React App", completed: false },
+    { id: 3, task: "Deploy the React App", completed: false }
   ]);
 
+  console.log(todos)
   const handleComplete = (id) => {
 
     const updatedTodos = todos.map((item) => {
@@ -18,7 +19,7 @@ const App = () => {
 
         return {
           ...item,
-          isCompleted: true
+          completed: true
         };
 
       } else {

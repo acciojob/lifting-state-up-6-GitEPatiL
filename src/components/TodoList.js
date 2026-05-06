@@ -14,12 +14,12 @@ const TodoList = ({ todos, handleComplete }) => {
 
             {item.task}
 
-            {!item.isCompleted && (
+            {!item.completed && (
 
               <button
                 onClick={() => handleComplete(item.id)}
               >
-                Complete
+                complete
               </button>
 
             )}
@@ -34,3 +34,4 @@ const TodoList = ({ todos, handleComplete }) => {
 };
 
 export default TodoList;
+
