@@ -19,18 +19,23 @@ const TodoList = ({ tasks, setTasks }) => {
   return (
     <div>
       <h1>Child Component</h1>
-      <ul>
-        {tasks.map((item) => {
-          return (
-            <li key={item.id}>
-              {item.task}
-              {!item.isCompleted && (
-                <button onClick={() => ChangeState(item.id)}>Complete</button>
-              )}
-            </li>
-          );
-        })}
-      </ul>
+      {tasks.map((item) => {
+        return (
+          <div
+            key={item.id}
+            style={{ display: "flex", gap: "10px", margin: "10px" }}
+          >
+            <ul>
+              <li>
+                {item.task}
+                {!item.isCompleted && (
+                  <button onClick={() => ChangeState(item.id)}>Completed</button>
+                )}
+              </li>
+            </ul>
+          </div>
+        );
+      })}
     </div>
   );
 };
