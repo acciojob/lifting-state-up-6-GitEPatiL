@@ -1,6 +1,21 @@
 import React from "react";
 
-const TodoList = ({ tasks, completeTask }) => {
+const TodoList = ({ tasks, setTasks }) => {
+  const ChangeState = (id) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            isCompleted: true,
+          };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
+
   return (
     <div>
       <h1>Child Component</h1>
@@ -10,7 +25,7 @@ const TodoList = ({ tasks, completeTask }) => {
             <li key={item.id}>
               {item.task}
               {!item.isCompleted && (
-                <button onClick={() => completeTask(item.id)}>Complete</button>
+                <button onClick={() => ChangeState(item.id)}>Complete</button>
               )}
             </li>
           );

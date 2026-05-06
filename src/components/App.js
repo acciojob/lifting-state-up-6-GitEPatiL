@@ -9,19 +9,11 @@ const App = () => {
     { id: 3, task: "Deploy the React App", isCompleted: false },
   ]);
 
-  const completeTask = (id) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((item) =>
-        item.id === id ? { ...item, isCompleted: true } : item
-      )
-    );
-  };
-
   return (
     <div>
       {/* Do not remove the main div */}
       <h1>Parent Component</h1>
-      <TodoList tasks={tasks} completeTask={completeTask} />
+      <TodoList tasks={tasks} setTasks={setTasks} />
     </div>
   );
 };
