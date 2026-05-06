@@ -4,19 +4,18 @@ const TodoList = ({ tasks, setTasks }) => {
   console.log(tasks);
 
   const ChangeState = (id) => {
-    const updatedTasks = tasks.map((item)=>{
-        if(item.id === id){
-            return {
-                ...item,
-                isCompleted:true
-            }
-            
-        }else {
-                return item;
-            }
-    })
-
-    setTasks(updatedTasks)
+    setTasks((prevTasks) =>
+      prevTasks.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            isCompleted: true,
+          };
+        } else {
+          return item;
+        }
+      })
+    );
   };
 
   return (
