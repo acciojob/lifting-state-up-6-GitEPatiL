@@ -1,24 +1,6 @@
 import React from "react";
 
-const TodoList = ({ tasks, setTasks }) => {
-  console.log(tasks);
-
-  const ChangeState = (id) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((item) => {
-        if (item.id === id) {
-          return {
-            ...item,
-            isCompleted: true,
-          };
-        } else {
-          return item;
-        }
-      })
-    );
-  };
-
-  
+const TodoList = ({ tasks, completeTask }) => {
   return (
     <div>
       <h1>Child Component</h1>
@@ -28,7 +10,7 @@ const TodoList = ({ tasks, setTasks }) => {
             <li key={item.id}>
               {item.task}
               {!item.isCompleted && (
-                <button onClick={() => ChangeState(item.id)}>Complete</button>
+                <button onClick={() => completeTask(item.id)}>Complete</button>
               )}
             </li>
           );
